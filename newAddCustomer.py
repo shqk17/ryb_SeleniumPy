@@ -36,8 +36,8 @@ def main(customer_num, addtr, username, pawd):
 # 点击添加客户按钮
 def add_customers(driver):
     driver.find_element_by_xpath('//*[@class="add btn btn-success btn-new shiny"]').click()
-    driver.find_element_by_id('name').send_keys(commonUtils.GBK2312() + commonUtils.GBK2312())
-    driver.find_element_by_name('patriarchName').send_keys(commonUtils.GBK2312() + commonUtils.GBK2312())
+    driver.find_element_by_id('name').send_keys(commonUtils.getChineseName())
+    driver.find_element_by_name('patriarchName').send_keys(commonUtils.getChineseName())
     driver.find_element_by_name('contactPhone').send_keys(commonUtils.create_phone())
     channel_source_ele = driver.find_element_by_name('channelSource')
     channel_source_select = Select(channel_source_ele)
@@ -50,8 +50,10 @@ def add_customers(driver):
 
 
 if __name__ == "__main__":
-    customerNum = 3
+    customerNum = 10
     addtr = 'http://localhost:8081/sys_index'
-    username = 'fengqiqi'
-    pawd = '123456'
+    # username = 'fengqiqi'
+    # pawd = '123456'
+    username = 'shuhaoyz'
+    pawd = 'qzy123456'
     main(customerNum, addtr, username, pawd)
